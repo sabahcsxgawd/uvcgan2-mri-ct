@@ -49,7 +49,7 @@ args_dict = {
         **GEN_PRESETS[cmdargs.gen],
         'optimizer'  : {
             'name'  : 'AdamW',
-            'lr'    : cmdargs.batch_size * 5e-4 / 512,
+            'lr'    : cmdargs.batch_size * 1e-4 / 512,
             'betas' : (0.9, 0.99),
             'weight_decay' : 0.05,
         },
