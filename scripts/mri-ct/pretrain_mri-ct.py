@@ -11,8 +11,8 @@ from uvcgan2.utils.parsers import add_preset_name_parser, add_batch_size_parser,
 def parse_cmdargs():
     parser = argparse.ArgumentParser(description = 'Pretrain MRI-CT generators')
     add_preset_name_parser(parser, 'gen', GEN_PRESETS, 'uvcgan2')
-    add_batch_size_parser(parser, default = 32)
-    add_epoch_parser(parser, default = 10)
+    add_batch_size_parser(parser, default = 8)
+    add_epoch_parser(parser, default = 50)
     return parser.parse_args()
 
 cmdargs   = parse_cmdargs()
@@ -49,7 +49,7 @@ args_dict = {
         **GEN_PRESETS[cmdargs.gen],
         'optimizer'  : {
             'name'  : 'AdamW',
-            'lr'    : cmdargs.batch_size * 2e-4 / 512,
+            'lr'    : cmdargs.batch_size * 1e-4 / 512,
             'betas' : (0.9, 0.99),
             'weight_decay' : 0.05,
         },
@@ -79,7 +79,7 @@ args_dict = {
     'label'      : f'pretrain-{cmdargs.gen}',
     'outdir'     : os.path.join(ROOT_OUTDIR, 'mri-ct_resized_lanczos'),
     'log_level'  : 'DEBUG',
-    'checkpoint' : 100,
+    'checkpoint' : 10,
 }
 
 train(args_dict)
