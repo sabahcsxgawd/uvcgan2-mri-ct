@@ -49,7 +49,7 @@ args_dict = {
         **GEN_PRESETS[cmdargs.gen],
         'optimizer'  : {
             'name'  : 'AdamW',
-            'lr'    : cmdargs.batch_size * 1e-4 / 512,
+            'lr'    : cmdargs.batch_size * 1e-5 / 512,
             'betas' : (0.9, 0.99),
             'weight_decay' : 0.05,
         },
@@ -68,7 +68,7 @@ args_dict = {
     },
     'scheduler' : {
         'name'    : 'CosineAnnealingWarmRestarts',
-        'T_0'     : 5,
+        'T_0'     : 10,
         'T_mult'  : 1,
         'eta_min' : cmdargs.batch_size * 5e-8 / 512,
     },
