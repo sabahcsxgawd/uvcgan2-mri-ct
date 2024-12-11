@@ -11,7 +11,7 @@ from uvcgan2.utils.parsers import add_preset_name_parser, add_batch_size_parser,
 def parse_cmdargs():
     parser = argparse.ArgumentParser(description = 'Pretrain MRI-CT generators')
     add_preset_name_parser(parser, 'gen', GEN_PRESETS, 'uvcgan2')
-    add_batch_size_parser(parser, default = 8)
+    add_batch_size_parser(parser, default = 32)
     add_epoch_parser(parser, default = 50)
     return parser.parse_args()
 
