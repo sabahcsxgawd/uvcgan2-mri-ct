@@ -68,7 +68,7 @@ args_dict = {
     },
     'scheduler' : {
         'name'    : 'CosineAnnealingWarmRestarts',
-        'T_0'     : 10,
+        'T_0'     : 200,
         'T_mult'  : 1,
         'eta_min' : cmdargs.batch_size * 5e-8 / 512,
     },
